@@ -57,9 +57,20 @@ video
 canvas属性
 `id width height`
 ```
-moveTo-描点方法
-lineTo-划线方法
+moveTo()-描点方法
+lineTo()-划线方法
 lineWidth-线条宽度
-stroke-直线显示方法
-
+strokeStyle 设置颜色
+lineCap 线条两端形状 butt round square 加长方头
+stroke()-直线显示方法
+beginpath()一个新线段的绘制
+fillStyle填充颜色
+fill()填充
+fillRect()绘制矩形
+arc()绘制圆形
+quadraticCurveTo()绘制曲线
+translate 平移函数
+rotate     旋转
+matrix     矩阵
+scale      缩放
 ```
