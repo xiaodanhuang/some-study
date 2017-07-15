@@ -3,23 +3,26 @@ title:  读书笔记之图解http
 
 ---
 ## 第一章了解web及网络基础
-### 在浏览器地址栏输入url点击到呈现页面发生了什么?
-1.DNS解析
-2.TCP连接
-3.发送HTTP请求
-4.服务器处理请求并返回HTTP报文
-5.浏览器解析渲染页面
-6.连接结束
-具体过程:
-###### DNS解析:将域名转换成ip地址的过程.
-DNS存在着多级缓存，从离浏览器的距离排序的话，有以下几种: 浏览器缓存，系统缓存，路由器缓存，IPS服务器缓存，根域名服务器缓存，顶级域名服务器缓存，主域名服务器缓存。
-<img src="http://osz5qtl3g.bkt.clouddn.com/DNS.png" />
-DNS负载均衡
-不知道大家有没有思考过一个问题: DNS返回的IP地址是否每次都一样？如果每次都一样是否说明你请求的资源都位于同一台机器上面，那么这台机器需要多高的性能和储存才能满足亿万请求呢？其实真实的互联网世界背后存在成千上百台服务器，大型的网站甚至更多。但是在用户的眼中，它需要的只是处理他的请求，哪台机器处理请求并不重要。DNS可以返回一个合适的机器的IP给用户，例如可以根据每台机器的负载量，该机器离用户地理位置的距离等等，这种过程就是DNS负载均衡，又叫做DNS重定向。大家耳熟能详的CDN(Content Delivery Network)就是利用DNS的重定向技术，DNS服务器会返回一个跟用户最接近的点的IP地址给用户.[原作为simon_woo ]
 
-###### TCP连接
-###### HTTP请求
-HTTP请求包括请求报头和请求主体两个部分，其中请求报头包含了至关重要的信息，包括请求的方法（GET / POST）、目标url、遵循的协议（http / https / ftp…），返回的信息是否需要缓存，以及客户端是否发送cookie等。
 ### TCP/IP协议族
-<img src="http://osz5qtl3g.bkt.clouddn.com/icp-iptranslate.png" />
+与互联网相关的协议集合
+<img src="http://osz5qtl3g.bkt.clouddn.com/TCP-IP.jpg" />
+
+##### 负责传输的IP协议:
+IP协议的作用是把各种数据包发送给对方,保证发送到对方那里的两个重要条件是IP地址可变换,但MAC地址基本不会改变
+使用ARP协议凭借MAC地址进行通信 [用以解析地址的协议],根据IP地址可以反查对应的MAC地址
+确保可靠性的TCP协议:
+提供可靠的字节流服务[将大块数据分割成以报文段为单位的数据包进行管理].
+TCP三次握手
+
+<img src="http://osz5qtl3g.bkt.clouddn.com/tcp-shakehand.png"/>
+
+浏览页面发生了什么?
+<img src="http://osz5qtl3g.bkt.clouddn.com/tcp-ip-liulan.png" />
+
+##### 什么是URI？
+Web上每种可用的资源，如 HTML文档、图像、视频片段、程序等都由一个通用资源标志符(Universal Resource Identifier， URI)进行定位。
+URL是URI的一个子集。它是Uniform Resource Locator的缩写，译为“统一资源定位 符”。
+通俗地说，URL是Internet上描述信息资源的字符串，主要用在各种WWW客户程序和服务器程序上。
+采用URL可以用一种统一的格式来描述各种信息资源，包括文件、服务器的地址和目录等。
 
