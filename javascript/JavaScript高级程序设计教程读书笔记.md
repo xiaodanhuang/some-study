@@ -78,6 +78,9 @@ ECMAScript 数组的每一项可以保存任何类型的数据，ECMAScript 数�
 栈方法：后进先出push(),pop()
 队列方法：先进先出shift(),push()
 重排序方法：reserve（），sort（）
+操作方法:concat(),slice(),splice()
+位置方法：indexOf(),lastIndexof()
+迭代方法：every（），filter（），forEach（），map（），some()
 
 
 
