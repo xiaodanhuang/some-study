@@ -1,11 +1,12 @@
-//双链表
+//单向循环链表
 function Node(element) {
     this.element = element;
-    this.previous=null;
     this.next = null;
+
 }
 function LList() {
     this.head = new Node("head");
+    this.head.next=this.head;
     this.find = find;
     this.insert = insert;
     this.display=display;
@@ -25,14 +26,12 @@ function find(item) {
 function insert(newElement, item) {
     var newNode = new Node(newElement);
     var current = this.find(item);
-    newNode.previous=current;
     newNode.next = current.next;
     current.next = newNode;
-
 }
 function display(){
     var currNode = this.head;
-    while (!(currNode.next==null) ) {
+    while (!(currNode.next==this.head) ) {
         console.log(currNode.next.element);
         currNode = currNode.next;
     }
@@ -47,8 +46,9 @@ function findPrevious(item){
 }
 function remove(item){
     var preNode=this.findPrevious(item);
-    preNode.next=preNode.next.next;
-    preNode.next.previous=preNode;
+    var current=this.find(item);
+    preNode.next=current.next;
+    current.next=null;
 }
 // 主程序
 var g = new LList();
