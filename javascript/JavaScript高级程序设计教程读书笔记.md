@@ -70,7 +70,7 @@ js没有块级作用域
 ###### 管理内存：
 优化内存占用
 ### 第五章：引用类型
-###### Object:
+###### object
 ###### array：
 ECMAScript 数组的每一项可以保存任何类型的数据，ECMAScript 数组的大小是可以动态调整
 数组检测：Array.isArray()
@@ -81,21 +81,7 @@ ECMAScript 数组的每一项可以保存任何类型的数据，ECMAScript 数�
 操作方法:concat(),slice(),splice()
 位置方法：indexOf(),lastIndexof()
 迭代方法：every（），filter（），forEach（），map（），some()
-归并方法:reduce(),reduceRight()
-###### Date:
-在调用Date 构造函数而不传递参数的情况下，新创建的对象自动获得当前日期和时间
-###### RegExp:
-###### Function:
-函数实际上是对象。每个函数都是Function 类型的实例,由于函数是对象，因此函数名实际上也是一个指向函数对象的指针，不会与某个函数绑定,所以没有函数的重载.
-函数有两个特殊的对象：arguments 和this。
-函数的属性:length,prototype,call()方法与apply()方法的作用相同，它们的区别仅在于接收参数的方式不同。对于call()方法而言，第一个参数是this 值没有变化，变化的是其余参数都接传递给函数。换句话说，在使用
-call()方法时，传递给函数的参数必须逐个列举出来.
-###### 基本包装类型:
-Boolean,Number,String
-###### 单体内置对象
-Global和Math
-### 第六章:面向对象的程序设计
-可以把ECMAScript的对象想象成散列表：无非就是一组名值对，其中值可以是数据或函数。
+
 
 
 
