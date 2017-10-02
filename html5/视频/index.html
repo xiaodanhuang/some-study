@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视频</title>
+</head>
+<style>
+    progress{
+        display:block;
+        width:400px;
+    }
+</style>
+<body>
+<video src="video.mp4"  width="400px" height="'300px" poster ontimeupdate="progressOn()"></video>
+<progress min="0" max="100" value="0" ></progress>
+<button onclick="play()"> play</button>
+<button onclick="pause()"> pause</button>
+<button onclick="stop()">stop</button>
+<button onclick="photo()"> camera</button>
+<canvas id="canvas" width="400px" height="300px"></canvas>
+</body>
+<script>
+    var ctx=document.getElementById('canvas');
+    var context=ctx.getContext('2d');
+    function play(){
+        var video=document.getElementsByTagName('video')[0] ;// 播放
+        video.play();
+    }
+    function pause(){
+        var video=document.getElementsByTagName('video')[0] ;// 播放
+        video.pause();
+    }
+    function stop(){
+        var video=document.getElementsByTagName('video')[0] ;// 播放
+        video.pause();
+        video.currentTime=0;
+    }
+    function progressOn(){
+        var video=document.getElementsByTagName('video')[0] ;// 播放
+        var progress=document.getElementsByTagName('progress')[0] ;
+        progress.value=video.currentTime/video.duration*100;
+
+    }
+function photo(){
+    context.clearRect(0,0,ctx.width,ctx.height);
+    var video=document.getElementsByTagName('video')[0];
+    context.drawImage(video,0,0,video.clientWidth,video.clientHeight);
+}
+
+
+
+
+
+
+</script>
+</html>
