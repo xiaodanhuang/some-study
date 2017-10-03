@@ -1,0 +1,59 @@
+[id$='123']{
+ border:1px solid pink;
+    width:500px;
+}
+p{
+    width:100px;
+    word-break: break-all;
+    counter-increment: mycounter;
+    quotes:"\"" "\"";
+}
+p:first-line{
+    color:blueviolet;
+}
+p:first-letter{
+    font-size:20px;
+    color:burlywood;
+}
+p:after{
+    content:'我是after';
+    display:block;
+}
+
+p:before{
+    content:'我是before';
+    display:block;
+}
+:root{
+    background-color: cornsilk;
+}
+body{
+    background-color:#aaaaaa;
+}
+p:first-child{
+    background-color: yellow;
+}
+p:nth-child(3){
+    background-color: cornsilk;
+}
+p:nth-of-type(2){
+    background-color: #57abff;
+
+}
+p:only-child{
+    backgroun-color:black;
+}
+div~p{
+    font-style: italic;
+}
+p:before{
+    content:counter(mycounter);
+}
+
+.mytext {
+    text-shadow: 5px 5px 1px pink;
+    width: 500px;
+    height: 40px;
+    border: 1px solid black;
+    overflow: hidden;
+}

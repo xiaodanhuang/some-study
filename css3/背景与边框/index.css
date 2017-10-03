@@ -1,0 +1,5 @@
+div{
+    width:500px;
+    height:500px;
+   -webkit-border-image: url("avatar.png") 20 20 20 20 /20px;
+}

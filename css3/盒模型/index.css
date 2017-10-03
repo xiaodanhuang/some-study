@@ -1,0 +1,16 @@
+div{
+    background-color:pink;
+}
+span{
+    background-color:lightgoldenrodyellow;
+}
+.span1{
+    display:inline-block;
+    width:300px;
+}
+.div1{
+    width:400px;
+    height:100px;
+    box-shadow: 1px 1px 50px hotpink
+
+}
