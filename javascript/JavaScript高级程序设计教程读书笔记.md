@@ -114,18 +114,7 @@ match()
 2.作为构造函数
 3.作为方法
 
-###### 基本包装类型：
-Number，Boolean,String
-字符串操作方法
-1.concat
-2.slice
-3.substrtion 
-用途：
-1.作为值
-2.作为构造函数
-3.作为方法
-
-###### 基本包装类型：
+###### 基本包装类型：[既基本类型又是引用类型]
 Number，Boolean,String
 字符串操作方法
 1.concat
