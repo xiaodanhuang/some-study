@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模版字符串</title>
+</head>
+<body>
+<input  type="text"id="name" />
+<input  type="text"id="message" />
+<input type="button" onclick="saying()" />
+<ul>
+</ul>
+</body>
+<script>
+    var name=document.querySelector("#name");
+    var message=document.querySelector("#message");
+    var submit=document.querySelector("#button");
+    var ul=document.querySelector("ul");
+    function saying(){
+        var li=document.createElement('li');
+        let sname=name.value;
+        let smessage=message.value;
+        li.innerHTML=`<p>用户名${sname}</p>留言：${smessage} `;
+        ul.appendChild(li);
+    }
+    var a='love';
+    console.log(`i ${a} `)
+</script>
+</html>
