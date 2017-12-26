@@ -4,6 +4,12 @@
 
 公司贫民窟学校🐳 三点一线🌗，沉迷于学习无法自拔...
 
+<img src="http://osz5qtl3g.bkt.clouddn.com/love.jpg"/>
+
+2017年12月26日
+
+
+-正在实习的蛋黄 
 
 
 
