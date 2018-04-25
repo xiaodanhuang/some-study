@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    class UserGreeting extends React.Component{
+        constructor (props){
+            super(props)
+        }
+        render(){
+            return (
+                <div>{this.props.user}</div>
+            )
+        }
+    }
+    class GuestGreeting extends React.Component{
+        constructor (props){
+            super(props)
+        }
+        render(){
+            return (
+                <div>{this.props.guest}</div>
+            )
+        }
+
+    }
+    class Greeting  extends React.Component{
+        constructor(props){
+            super(props)
+            this.state={
+                isUser:false,
+                guest:'welcome Guest!',
+                user:'welcome User'
+
+            }
+        }
+        handleClick=()=>{
+            this.setState(preState=>({
+                isUser:!preState.isUser
+            }));
+
+        }
+        render(){
+                let show=null
+                if(this.state.isUser){
+                    show=<UserGreeting user={this.state.user}/>
+                }
+                else{
+                    show=<GuestGreeting guest={this.state.guest}/>
+                }//第一种写法
+
+                return (
+                    <div>
+                        <button onClick={this.handleClick}>
+                            {this.state.isUser?this.state.user:this.state.guest}
+                        </button>
+                        {this.state.isUser?<UserGreeting user={this.state.user}/>:<GuestGreeting guest={this.state.guest}/>}
+                        {show}
+                    </div>
+                )
+
+        }
+    }
+    ReactDOM.render(
+        <Greeting/>,
+        document.getElementById("example")
+    )
+</script>
+</body>
+<style>
+
+</style>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+   class NameForm extends React.Component{
+       constructor(props){
+           super(props)
+           this.state={
+               name:'please '
+           }
+       }
+       handleName=(event)=>{
+           this.setState({
+               name:event.target.value
+               }
+           )
+           console.log(this.state.name)
+
+       }
+       render(){
+           return (
+               <form>
+                   <input value={this.state.name} onChange={this.handleName}/>
+               </form>
+           )
+       }
+   }
+   ReactDOM.render(
+       <NameForm/>,
+       document.getElementById("example")
+   )
+
+
+</script>
+</body>
+<style>
+
+</style>
+</html>
