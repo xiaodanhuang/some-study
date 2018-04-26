@@ -1,6 +1,7 @@
 package main;
+import main.Animal;
 
-public class Dog {
+public class Dog extends  Animal  {
     private int age;
     private String name;
 
@@ -21,5 +22,8 @@ public class Dog {
     }
     public void bark(){
         System.out.print("bark bark");
+    }
+    public void sleep(){
+        System.out.println("I wanna sleep");
     }
 }
