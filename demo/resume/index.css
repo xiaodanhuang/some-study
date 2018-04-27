@@ -1,0 +1,62 @@
+.resume{
+    margin: 0 auto;
+    background-color: goldenrod;
+    width:700px;
+    text-align: center;
+}
+
+.content{
+    word-wrap : break-word;
+    width:500px;
+
+}
+.header,.block,.header .content{
+    display: flex;
+}
+.header .side-bar{
+   line-height: 250px;
+
+}
+.header ul{
+    text-align: left;
+    margin-left:20px;
+}
+.header li{
+   line-height: 40px;
+}
+.side-bar{
+    width:200px;
+    text-align: center;
+    background-color: rgb(224,224,224);
+}
+.info-skill{
+    width:460px;
+    text-align: center;
+}
+.info-skill li{
+    display:inline-block;
+    width:100px;
+}
+.info-skill img{
+    width:50px;
+    height:50px;
+    border-radius: 10px;
+    background-color: deepskyblue;
+}
+.exprience{
+    width: 460px;
+}
+.info-icon img{
+    width:60px;
+    height:60px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+
+span{
+    margin-right:20px;
+}
+
+
+
