@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画</title>
+</head>
+<style>
+    div{
+        width:64px;
+
+    }
+    div hr{
+        width:0px;
+        transition:width 2s;
+        -webkit-transition:width 2s;
+        background-color: blue;
+        height:1px;
+        border-width:0px;
+    }
+
+
+</style>
+<body>
+    <div>
+        <span>前端学院</span>
+        <hr>
+    </div>
+    <button onclick="changeStyle()">切换样式</button>
+</body>
+<script>
+   function changeStyle() {
+       document.getElementsByTagName("div")[0].style.color="blue";
+       document.getElementsByTagName("hr")[0].style.borderWidth="1px";
+       document.getElementsByTagName("hr")[0].style.width="64px";
+       setTimeout(
+           "document.getElementsByTagName(\"div\")[0].style.color=\"black\";" +
+           "document.getElementsByTagName(\"hr\")[0].style.width=\"0px\";" +
+           " document.getElementsByTagName(\"hr\")[0].style.borderWidth=\"0px\";"
+           ,2000)
+   }
+</script>
+</html>
