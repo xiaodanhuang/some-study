@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D-transform</title>
+</head>
+<style>
+    .front{
+        width:250px;
+        height:350px;
+        background-image:url("note_css3_3d_frontpage.jpg");
+        transition:transform .8s
+    }
+    .back{
+        width:250px;
+        height:350px;
+        background-image:url("note_css3_3d_backpage.jpg");
+        transition:transform .8s;
+        transform:rotateY(-180deg);
+    }
+    .card:hover .front{transform:rotateY(180deg);}
+    .card:hover .back{transform:rotateY(0deg);}
+
+    .content{
+        position:absolute;
+        backface-visibility: hidden;
+    }
+</style>
+<body>
+<div>
+   <div class="card">
+       <div class="content front"></div>
+       <div class="content back"></div>
+   </div>
+</div>
+
+</body>
+</html>
