@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex布局</title>
+    <style>
+        body{
+            background: black;
+        }
+        .container{
+            margin:100px;
+            display:flex;
+            width:200px;
+            height:200px;
+            background: white;
+            justify-content: space-between;
+
+
+        }
+        .item{
+            display:inline-block;
+            width:50px;
+            background: black;
+            height:50px;
+            border-radius:25px;
+        }
+        .column{
+
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="column">
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+    </div>
+    <div class="column">
+        <span class="item"></span>
+    </div>
+</div>
+</body>
+</html>

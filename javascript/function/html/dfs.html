@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>深度优先遍历</title>
+</head>
+<body>
+    <div id="parent" >
+        <div class="child-1">
+            <div class="child-1-1"></div>
+            <div class="child-1-2"></div>
+        </div>
+        <div class="child-2">
+            <div class="child-2-1"></div>
+            <div class="child-2-2"></div>
+        </div>
+        <div class="child-3">
+            <div class="child-3-1"></div>
+        </div>
+        <div class="child-4">
+        </div>
+    </div>
+</body>
+<script>
+    function dfs(node,nodeList=[]){
+        if(node!=null){
+            nodeList.push(node);
+            let children = node.children
+            for(let i=0;i<children.length;i++){
+                dfs(children[i],nodeList)
+            }
+        }
+        return nodeList;
+    }
+    let parent=document.getElementById("parent");
+    let nodeList=dfs(parent)
+    console.log(nodeList)
+
+</script>
+</html>

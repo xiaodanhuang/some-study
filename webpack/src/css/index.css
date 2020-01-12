@@ -1,0 +1,18 @@
+body{
+    background-color: pink;
+}
+.small{
+    width:200px;
+    height:200px;
+    background-image: url("../images/small.jpg");
+    background-size:100% 100%;
+    border:1px solid black;
+    transform: rotate(45deg);
+}
+.big{
+    width:400px;
+    height:400px;
+    background-image: url("../images/big.png");
+    background-size:100% 100%;
+    border:1px solid black;
+}

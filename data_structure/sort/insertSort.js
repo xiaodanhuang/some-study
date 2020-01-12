@@ -1,8 +1,8 @@
 function insertSort(arr){
     for(var i=1;i<arr.length;i++){
-        for(var j=i;j>=0;i--){
-            if(arr[j]<arr[j-1]){
-                swap(arr,j,j-1)
+        for(var j=i+bars;j<arr.length;j+=bars){
+            if(arr[j+bars]<arr[j]){
+                swap(arr,j,j+bars)
 
             }
 

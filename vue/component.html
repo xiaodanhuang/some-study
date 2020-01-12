@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+<div id="vue" :style="{ 'fontSize': fontSize + 'px' }">
+    <person-info @en-large="enlarge" :name="item.name" :sex="item.sex" v-for="item in messageList"></person-info>
+    <person_button></person_button>
+</div>
+
+<template id="person_info">
+    <div>
+        <span>姓名:{{name}}</span>
+        <span>性别:{{sex}}</span>
+        <button @click="enlargeFont">放大</button>
+    </div>
+</template>
+<template id="person_button">
+    <div>
+        <button @click="countNumber">计数</button>
+        <p>计数：{{number}}</p>
+    </div>
+</template>
+</body>
+<script>
+    Vue.component('person-info', {
+        //data 函数保证每个实例独立
+        props: ['name', 'sex', 'myFontSize'],
+        data: function () {
+            return {
+                count: 1,
+            }
+        },
+        methods: {
+            countNumber() {
+                this.count++
+            },
+            enlargeFont: function () {
+                this.$emit('en-large')
+            }
+        },
+        template: '#person_info'
+    })
+    var personButton = {
+        name: "person_button",
+        data: function () {
+            return {
+                number: 0
+            }
+        },
+        methods: {
+            countNumber: function () {
+                this.number++;
+            }
+        },
+        template: "#person_button"
+
+    }
+    var vm = new Vue({
+        el: "#vue",//绑定div
+        components: {
+            'person_button': personButton
+        },
+        data: {
+            fontSize: 34,
+            messageList: [{
+                name: 'danhuang',
+                sex: 'female'
+            }, {
+                name: 'mango',
+                sex: 'female'
+            }, {
+                name: 'hah',
+                sex: 'female'
+            }
+            ]
+        }
+        , methods: {
+            enlarge: function () {
+                console.log(1)
+                this.fontSize++;
+            }
+        }
+
+    })
+
+</script>
+</html>

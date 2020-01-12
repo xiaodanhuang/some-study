@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>防抖</title>
+</head>
+<body>
+<input id="input"/>
+</body>
+<script>
+
+    function  debounce(fn){
+        let timer=null;
+        return function(){
+            clearTimeout(timer)
+            timer = setTimeout(() => {
+                fn.apply(this, arguments);
+            }, 500);
+        }
+    }
+    function insert(){
+        console.log("防抖哦")
+    }
+    document.getElementById("input").addEventListener('input',debounce(insert))
+
+</script>
+</html>

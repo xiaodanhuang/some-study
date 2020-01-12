@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+<div id="vue" :style="{ 'fontSize': fontSize + 'px' }">
+    <person-info ref="usernameInput" @en-large="enlarge" :name="item.name" :sex="item.sex" v-for="item in messageList">
+        <template #footer>嘿嘿嘿</template>
+    </person-info>
+</div>
+
+<template id="person_info" >
+    <div>
+        <span>姓名:{{name}}</span>
+        <span>性别:{{sex}}</span>
+        <slot name="footer" >哈哈哈</slot>
+        <button @click="countNumber">计数</button>{{count}}
+        <button @click="enlargeFont">放大</button>
+        {{getFontSize}}
+    </div>
+</template>
+
+</body>
+<script>
+    Vue.component('person-info', {
+        //data 函数保证每个实例独立
+        props: ['name', 'sex', 'myFontSize'],
+        data: function () {
+            return {
+                count: 1,
+            }
+        },
+        inject:['getFontSize'],
+        methods: {
+            countNumber() {
+                this.count++
+                console.log(this.$parent)
+                console.log(this.$root)
+            },
+            enlargeFont: function () {
+                this.$emit('en-large')
+            }
+        },
+        template: '#person_info'
+    })
+
+    var vm = new Vue({
+        el: "#vue",//绑定div
+        components: {
+
+        },
+        data: {
+            fontSize: 34,
+            messageList: [{
+                name: 'danhuang',
+                sex: 'female'
+            }, {
+                name: 'mango',
+                sex: 'female'
+            }, {
+                name: 'hah',
+                sex: 'female'
+            }
+            ]
+        }
+        , methods: {
+            enlarge: function () {
+                 console.log(this.$refs.usernameInput)
+                console.log(1)
+                this.fontSize++;
+            }
+        },
+        provide:function(){
+            return {
+                getFontSize:this.fontSize
+            }
+        }
+
+    })
+
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>广度优先遍历</title>
+</head>
+<body>
+    <div id="parent" >
+        <div class="child-1">
+            <div class="child-1-1"></div>
+            <div class="child-1-2"></div>
+        </div>
+        <div class="child-2">
+            <div class="child-2-1"></div>
+            <div class="child-2-2"></div>
+        </div>
+        <div class="child-3">
+            <div class="child-3-1"></div>
+        </div>
+        <div class="child-4">
+        </div>
+    </div>
+</body>
+<script>
+    function cfs(node,nodeList=[]){
+        if(node!=null){
+            nodeList.push(node)
+            let stack=[node];
+            while(stack.length){
+                let nodes=[];
+                stack.forEach(item=>{
+                    for(let i=0;i<item.children.length;i++){
+                        nodes.push(item.children[i])
+                    }
+                })
+                nodeList=nodeList.concat(nodes)
+                stack=nodes
+            }
+        }
+        return nodeList;
+    }
+    let parent=document.getElementById("parent");
+    let nodeList=cfs(parent)
+    console.log(nodeList)
+
+</script>
+</html>

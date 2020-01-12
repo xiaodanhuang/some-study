@@ -5,7 +5,6 @@ function quickSort(arr,left,right){
     quickSort(arr,mid,right)
 }
 function partition(arr,left,right){
-
     var i=left,j=right,p=arr[right];
     while(i<j){
         while(i<j&&arr[i++]<=p)

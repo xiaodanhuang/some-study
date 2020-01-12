@@ -15,4 +15,3 @@ function swap(arr,i,j){
 }
 var arr=[7,6,9,4,0,5]
 bubbleSort(arr)
-console.log(arr)
