@@ -24,16 +24,16 @@ function App() {
     const ref2=useRef()
     //constructor ?? 没有
     useEffect(()=>{
-      console.log(ref1.current)
+        setTimeout(()=>{
+            setCount(x=>x+1)
+        },1000)
     })
   return (
     <div className="App">
       <header className="App-header">
-         <input />
-          <button onClick={()=>{ref2.current.focus()}}>+1</button>
-          <MInput value={count} ref={ref1}/>
-          <MInput value={count} ref={ref2}/>
+          {count}
       </header>
+
     </div>
   );
 }

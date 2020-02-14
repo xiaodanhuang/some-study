@@ -8,7 +8,7 @@ function debounce(func,delay=1000,immediate=true){
     let context = this,timer;
     let later=()=>
         setTimeout((args)=>{
-            func.apply(context,...args);
+            func.call(context,...args);
             context=null;
             timer=null
         },delay)
@@ -16,7 +16,7 @@ function debounce(func,delay=1000,immediate=true){
     return function(...args){
         if(timer) clearTimeout(timer,args)
         if(immediate){
-            func.apply(context)
+            func.call(context)
             immediate=false
             setTimeout(()=>{
                 timer=null
