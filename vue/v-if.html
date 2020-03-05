@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue控制流</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<style>
+    body{
+        text-align: center;
+    }
+    .bind{
+        color:pink;
+    }
+</style>
+<body>
+<div id="vue">
+    <div v-if="role==='admin'">
+        管理员
+    </div>
+    <div v-else>
+        用户
+    </div>
+</div>
+</body>
+<script>
+    var vm=new Vue({
+        el:"#vue",
+        data:{
+                role:'admin'
+
+        },
+        methods:{
+
+        },
+        watch:{
+
+        }
+
+
+    })
+</script>
+</html>

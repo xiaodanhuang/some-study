@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>vue init</title>
+    <title>vue 初始化</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 
 </head>
 <body>
     <div id="vue">
+        <input v-model="message"/>
         {{message}}
     </div>
 </body>
 <script>
-   var vm=new Vue({
+   let vm=new Vue({
        el:"#vue",//绑定div
        data:{
            message:'hello world'

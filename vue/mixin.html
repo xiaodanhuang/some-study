@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mixin</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="vue">
+    <modal></modal>
+    <popup></popup>
+</div>
+<template id="modal-content">
+    <div>
+        <button @click="show">开</button>
+        <button @click="hidden">关</button>
+        <div v-show="visible">哈哈哈</div>
+    </div>
+</template>
+<template id="popup-content">
+    <div>
+        <button @mouseenter="show" @mouseleave="hidden">hover就出来</button>
+        <div v-show="visible">吼猴</div>
+    </div>
+</template>
+</body>
+<script>
+    var mix = {
+        data: function () {
+            return {
+                visible: false
+            }
+        },
+        methods: {
+            show: function () {
+                this.visible = true
+            },
+            hidden: function () {
+                this.visible = false
+            }
+        }
+    }
+
+    Vue.component('modal', {
+        mixins: [mix],
+        template: '#modal-content'
+
+    })
+    Vue.component('popup', {
+        mixins: [mix],
+        template: '#popup-content'
+
+    })
+    let vm = new Vue({
+        el: "#vue",//绑定div
+        data: {
+            message: 'hello world'
+        }
+    })
+</script>
+</html>

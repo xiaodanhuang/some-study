@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue指令</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<style>
+    body{
+        text-align: center;
+    }
+    .bind{
+        color:pink;
+    }
+</style>
+<body>
+<div id="vue">
+    {{message}}
+    <ul>
+        <li v-for="item in list">{{item.name}}</li>
+    </ul>
+    <div :class="{bind:bind}">v-bind</div>
+    <button v-on="{mouseenter:enter,click:click}">点我</button>
+    <div>
+        <input v-model.number="value"/>
+        {{value}}
+    </div>
+    <div>
+        <label>
+            男
+            <input  v-model="sex" type="radio" name="sex" value="man">
+        </label>
+        <label>
+            女
+            <input v-model="sex"type="radio" name="sex" value="female">
+        </label>
+        <br/>
+        {{sex}}
+    </div>
+    <div>
+        <label>
+            米饭
+            <input  v-model="food" type="checkbox" name="food" value="rice">
+        </label>
+        <label>
+            面条
+            <input v-model="food"type="checkbox" name="food" value="noodles">
+        </label>
+        {{food}}
+    </div>
+
+
+</div>
+</body>
+<script>
+    var vm=new Vue({
+        el:"#vue",
+        data:{
+            message:"vue",
+            list:[
+                {name:"葱"},
+                {name:"姜"},
+                {name:"蒜"}
+            ],
+            bind:true,
+            value:'嘿嘿',
+            sex:'female',
+            food:[]
+
+        },
+        methods:{
+            click:function(){
+                console.log('click')
+            },
+            enter:function(){
+                console.log('enter')
+            }
+        },
+        watch:{
+
+        }
+
+
+    })
+</script>
+</html>

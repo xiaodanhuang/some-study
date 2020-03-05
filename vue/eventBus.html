@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue eventBus</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+<div id="vue">
+    <iam></iam>
+    <you></you>
+</div>
+<template id="i-component">
+    <div>我说
+        <input v-model="word" @keyup="changeWord"/></div>
+</template>
+<template id="you-component">
+
+    <div>
+        你说
+        {{message}}
+    </div>
+</template>
+</body>
+<script>
+    let Event = new Vue()
+    Vue.component('iam', {
+        data: function () {
+            return {
+                word: null
+            }
+        },
+        methods: {
+            changeWord: function () {
+                Event.$emit('showWord', this.word)
+            }
+
+        },
+        template: '#i-component'
+    })
+    Vue.component('you', {
+        data: function () {
+            return {
+                message: null
+            }
+        },
+        template: '#you-component',
+        mounted: function () {
+            let that = this;
+            Event.$on('showWord', function (message) {
+                that.message = message
+            })
+        }
+    })
+    var vm = new Vue({
+        el: "#vue",//绑定div
+
+    })
+
+</script>
+</html>

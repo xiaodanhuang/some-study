@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父子通信</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+<div id="vue">
+</div>
+<template id="add-something">
+    <div>
+        <input v-model="todo"/>
+        <button @click="addThing">add</button>
+    </div>
+</template>
+<template id="todo-list-container">
+    <div>
+        <add-something @add="add"></add-something>
+        <ul>
+            <li v-for="item in todo_list">{{item}}</li>
+        </ul>
+
+    </div>
+</template>
+</body>
+<script>
+
+    Vue.component('addSomething',{
+        props:['add'],
+        data:function(){
+            return {
+                todo:null
+            }
+
+        },
+        template:'#add-something',
+        methods:{
+            addThing:function(){
+                this.$emit('add',this.todo)
+                this.todo=null;
+            }
+        }
+
+    })
+    var vm = new Vue({
+        el: "#vue",//绑定div
+        template:'#todo-list-container',
+        data: {
+            todo_list:['hah']
+        }
+        , methods: {
+            add:function(this_thing){
+                this.todo_list.push(this_thing)
+            }
+
+        }
+
+    })
+
+</script>
+</html>

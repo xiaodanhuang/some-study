@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue 计算属性</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="vue">
+        <input v-model.number="math"/>
+        <input v-model.number="english"/>
+        综合:{{sum}} 平均{{arv}}
+
+    </div>
+</body>
+<script>
+   let vm=new Vue({
+       el:"#vue",//绑定div
+       data:{
+           message:'hello world',
+           math:0,
+           english:0
+       },
+       computed:{
+           sum:function(){
+               return this.math+this.english
+           },
+           arv:function(){
+               return this.sum/2
+           }
+
+       }
+
+   })
+</script>
+</html>

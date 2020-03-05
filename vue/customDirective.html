@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义指令</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="vue">
+        <button @click="changePin">钉</button>
+        <button @click="changePin">取消</button>
+        <input v-pin.top.left="pin" v-model="message"/>
+    </div>
+</body>
+<script>
+    Vue.directive('pin',function(el,binding){
+        if(binding.value===true){
+            el.style.position='fixed';
+            let {modifiers}=binding
+            for(let key in modifiers){
+                el.style[key]='100px'
+            }
+        }else{
+            el.style.position='static';
+        }
+
+    })
+   let vm=new Vue({
+       el:"#vue",//绑定div
+       data:{
+           message:'hello world',
+           pin:false
+       },
+       methods:{
+           changePin:function(){
+               this.pin=this.pin?false:true
+           }
+
+       }
+
+   })
+</script>
+</html>

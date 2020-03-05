@@ -6,84 +6,42 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 </head>
 <body>
-<div id="vue" :style="{ 'fontSize': fontSize + 'px' }">
-    <person-info @en-large="enlarge" :name="item.name" :sex="item.sex" v-for="item in messageList"></person-info>
-    <person_button></person_button>
+<div id="vue">
+    <like></like>
 </div>
-
-<template id="person_info">
-    <div>
-        <span>姓名:{{name}}</span>
-        <span>性别:{{sex}}</span>
-        <button @click="enlargeFont">放大</button>
-    </div>
-</template>
-<template id="person_button">
-    <div>
-        <button @click="countNumber">计数</button>
-        <p>计数：{{number}}</p>
-    </div>
+<template id="like-component">
+    <button @click="toggleLike">{{icon}} {{like_count}}</button>
 </template>
 </body>
 <script>
-    Vue.component('person-info', {
-        //data 函数保证每个实例独立
-        props: ['name', 'sex', 'myFontSize'],
-        data: function () {
-            return {
-                count: 1,
-            }
-        },
-        methods: {
-            countNumber() {
-                this.count++
-            },
-            enlargeFont: function () {
-                this.$emit('en-large')
-            }
-        },
-        template: '#person_info'
-    })
-    var personButton = {
-        name: "person_button",
-        data: function () {
-            return {
-                number: 0
-            }
-        },
-        methods: {
-            countNumber: function () {
-                this.number++;
-            }
-        },
-        template: "#person_button"
 
-    }
+    Vue.component('like',{
+            data:function(){
+                return {
+                    like_count:10,
+                    liked:false
+                }
+            },
+            template:'#like-component',
+            computed:{
+                icon:function(){
+                    return this.liked?"👎":"👍"
+                }
+
+            },
+            methods:{
+                toggleLike:function(){
+                    this.liked?this.like_count--:this.like_count++
+                    this.liked=!this.liked
+                }
+            }
+
+        }
+
+    )
+
     var vm = new Vue({
         el: "#vue",//绑定div
-        components: {
-            'person_button': personButton
-        },
-        data: {
-            fontSize: 34,
-            messageList: [{
-                name: 'danhuang',
-                sex: 'female'
-            }, {
-                name: 'mango',
-                sex: 'female'
-            }, {
-                name: 'hah',
-                sex: 'female'
-            }
-            ]
-        }
-        , methods: {
-            enlarge: function () {
-                console.log(1)
-                this.fontSize++;
-            }
-        }
 
     })
 
